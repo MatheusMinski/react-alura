@@ -4,7 +4,7 @@
     return (
      <div className="text-input">
         <label>{props.label}</label>
-        <input placeholder={props.placeholder}/>
+        <input required={props.requiredProp} placeholder={props.placeholder}/>
      </div>   
     )
  }
