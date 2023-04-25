@@ -4,7 +4,7 @@ const HangingList = (props) =>{
     return (
         <div className='hanging-list'>
             <label>{props.label}</label>
-            <select>
+            <select onChange={evento => props.onValueChange(evento.target.value)} value={props.value}>
                 {props.itens.map(item => <option key={item}>{item}</option>)}
             </select>
         </div>
