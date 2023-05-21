@@ -9,12 +9,12 @@ function App() {
     {
       name: 'Programação',
       primaryColor: '#57C278',
-      secondaryColor: 'D9F7E9'
+      secondaryColor: '#D9F7E9'
     },
     {
       name: 'Front End',
       primaryColor: '#82CFFA',
-      secondaryColor: 'E8F8FF'
+      secondaryColor: '#E8F8FF'
     },
     {
       name: 'Data Science',
@@ -47,20 +47,21 @@ function App() {
 
   const newCollaborator = (collaborator) => {
     console.log(collaborator)
-    setCollaborators(...collaborators, collaborator)
+    setCollaborators([...collaborators, collaborator])
   }
 
   return (
     <div className="App">
       <Banner />
 
-      <Form onCollaboratorCreate={collaborator => newCollaborator(collaborator)}></Form>
+      <Form teams={teams.map(team => team.name)} onCollaboratorCreate={collaborator => newCollaborator(collaborator)}></Form>
 
       {teams.map(team => <Team 
       key={team.name} 
       name={team.name}
       primaryColor={team.primaryColor}
       secondaryColor={team.secondaryColor}
+      collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
       ></Team>)}
       
     </div>

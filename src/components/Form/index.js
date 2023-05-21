@@ -5,16 +5,6 @@ import { useState } from 'react'
 import Buttom from '../Buttom'
 
 const Form = (props) => {
-    const teams = [
-        'Programação',
-        'Front End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
     const [name, setName] = useState('')
     const [post, setPost] = useState('')
     const [image, setImage] = useState('')
@@ -56,7 +46,7 @@ const Form = (props) => {
                 />
                 <HangingList
                     label='Time'
-                    itens={teams}
+                    itens={props.teams}
                     value={team}
                     onValueChange={value => setTeam(value)}
                 />
